@@ -45,7 +45,7 @@ class SquidUsdcAxl extends Command
         }
 
         $minute = rand(3, 40);
-        $minute2 = $minute + rand(7, 15)
+        $minute2 = $minute + rand(7, 15);
 
         if ($hourSecondTask == 23) {
             $hourSecondTask = 0;
