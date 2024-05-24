@@ -32,7 +32,7 @@ class Discord extends Command
     {
         exec('cd $HOME/pythontest/ && python3 discord.py');
         $discord = Task::where('name', 'discord:task')->first();
-        $discord->time = rand(1,57) . ' ' . rand(22, 23) . ' * * *';
+        $discord->time = rand(1,57) . ' ' . rand(20, 21) . ' * * *';
         $discord->save();
     }
 }

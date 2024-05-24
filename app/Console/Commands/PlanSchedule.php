@@ -74,42 +74,42 @@ class PlanSchedule extends Command
             $task->delete();
         }
 
-        $hour1 = rand(6, 10);
+        $hour1 = rand(6, 10) -2;
         $minute1 = rand(1, 50);
         $task1 = new Task();
         $task1->name = 'squid:axlusdc';
         $task1->time = $minute1 . ' ' . $hour1 . ' * * ' . $dayOfWeek;
         $task1->save();   
 
-        $hour2 = $hour1 + rand(1,2);
+        $hour2 = $hour1 + rand(1,2) -2;
         $minute2 = rand(1, 50);
         $task2 = new Task();
         $task2->name = 'squid:usdcaxl';
         $task2->time = $minute2 . ' ' . $hour2 . ' * * ' . $dayOfWeek;
         $task2->save();
 
-        $hour3 = rand(13, 15);
+        $hour3 = rand(13, 15) - 2;
         $minute3 = rand(1, 50);
         $task3 = new Task();
         $task3->name = 'squid:axlusdc';
         $task3->time = $minute3 . ' ' . $hour3 . ' * * ' . $dayOfWeek;
         $task3->save();   
 
-        $hour4 = $hour3 + rand(1,2);
+        $hour4 = $hour3 + rand(1,2) -2;
         $minute4 = rand(1, 50);
         $task4 = new Task();
         $task4->name = 'squid:usdcaxl';
         $task4->time = $minute4 . ' ' . $hour4 . ' * * ' . $dayOfWeek;
         $task4->save();
 
-        $hour5 = rand(18, 19);
+        $hour5 = rand(18, 19) - 2;
         $minute5 = rand(1, 50);
         $task5 = new Task();
         $task5->name = 'squid:axlusdc';
         $task5->time = $minute5 . ' ' . $hour5 . ' * * ' . $dayOfWeek;
         $task5->save();   
 
-        $hour6 = $hour5 + rand(1,2);
+        $hour6 = $hour5 + rand(1,2) - 2;
         $minute6 = rand(1, 50);
         $task6 = new Task();
         $task6->name = 'squid:usdcaxl';
