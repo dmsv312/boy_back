@@ -74,14 +74,14 @@ class PlanSchedule extends Command
             $task->delete();
         }
 
-        $hour1 = rand(6, 10) -2;
+        $hour1 = rand(6, 10) - 2;
         $minute1 = rand(1, 50);
         $task1 = new Task();
         $task1->name = 'squid:axlusdc';
         $task1->time = $minute1 . ' ' . $hour1 . ' * * ' . $dayOfWeek;
         $task1->save();   
 
-        $hour2 = $hour1 + rand(1,2) -2;
+        $hour2 = $hour1 + rand(1,2);
         $minute2 = rand(1, 50);
         $task2 = new Task();
         $task2->name = 'squid:usdcaxl';
@@ -95,7 +95,7 @@ class PlanSchedule extends Command
         $task3->time = $minute3 . ' ' . $hour3 . ' * * ' . $dayOfWeek;
         $task3->save();   
 
-        $hour4 = $hour3 + rand(1,2) -2;
+        $hour4 = $hour3 + rand(1,2);
         $minute4 = rand(1, 50);
         $task4 = new Task();
         $task4->name = 'squid:usdcaxl';
@@ -109,7 +109,7 @@ class PlanSchedule extends Command
         $task5->time = $minute5 . ' ' . $hour5 . ' * * ' . $dayOfWeek;
         $task5->save();   
 
-        $hour6 = $hour5 + rand(1,2) - 2;
+        $hour6 = $hour5 + rand(1,2);
         $minute6 = rand(1, 50);
         $task6 = new Task();
         $task6->name = 'squid:usdcaxl';
