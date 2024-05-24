@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Http;
  * @property string $time
  * @property int $type
  * @property int $transaction_id
+ * @property bool $is_active
  */
 class Task extends Model
 {
@@ -23,6 +24,7 @@ class Task extends Model
     protected $fillable = [
         'name',
         'time',
+        'is_active'
     ];
 
     // Периоды. 1 - утро (8, 9, 10, 11, 12) , 2 - день (13, 14, 15, 16, 17) , 3 - вечер (18, 19, 20, 21, 22)

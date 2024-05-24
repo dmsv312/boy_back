@@ -32,31 +32,33 @@ class SquidUsdcAxl extends Command
     {
         exec('cd $HOME/pythontest/ && python3 open_firefox_keplr.py');
         exec('cd $HOME/pythontest/ && python3 squid_usdc_axl.py');
-        $squidAxlUsdc = Task::where('name', 'squid:axlusdc')->first();
         $squidUsdcAxl = Task::where('name', 'squid:usdcaxl')->first();
+        $squidUsdcAxl->delete();
+        // $squidAxlUsdc = Task::where('name', 'squid:axlusdc')->first();
+        // $squidUsdcAxl = Task::where('name', 'squid:usdcaxl')->first();
 
-        $hourFirstTask = intval(explode(' ', $squidAxlUsdc->time)[1]);
-        $hourSecondTask = intval(explode(' ', $squidUsdcAxl->time)[1]);
+        // $hourFirstTask = intval(explode(' ', $squidAxlUsdc->time)[1]);
+        // $hourSecondTask = intval(explode(' ', $squidUsdcAxl->time)[1]);
 
-        if ($hourFirstTask == 23) {
-            $hourFirstTask = 0;
-        } else {
-            $hourFirstTask = $hourFirstTask + 1;
-        }
+        // if ($hourFirstTask == 23) {
+        //     $hourFirstTask = 0;
+        // } else {
+        //     $hourFirstTask = $hourFirstTask + 1;
+        // }
 
-        $minute = rand(3, 40);
-        $minute2 = $minute + rand(7, 15);
+        // $minute = rand(3, 40);
+        // $minute2 = $minute + rand(7, 15);
 
-        if ($hourSecondTask == 23) {
-            $hourSecondTask = 0;
-        } else {
-            $hourSecondTask = $hourSecondTask + 1;
-        }
+        // if ($hourSecondTask == 23) {
+        //     $hourSecondTask = 0;
+        // } else {
+        //     $hourSecondTask = $hourSecondTask + 1;
+        // }
 
-        $squidAxlUsdc->time = $minute . ' ' . $hourFirstTask . ' * * *';
-        $squidUsdcAxl->time = $minute2 . ' ' . $hourSecondTask . ' * * *';
-        $squidAxlUsdc->save();
-        $squidUsdcAxl->save();
+        // $squidAxlUsdc->time = $minute . ' ' . $hourFirstTask . ' * * *';
+        // $squidUsdcAxl->time = $minute2 . ' ' . $hourSecondTask . ' * * *';
+        // $squidAxlUsdc->save();
+        // $squidUsdcAxl->save();
     }
 }
 

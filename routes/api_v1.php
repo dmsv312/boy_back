@@ -24,4 +24,5 @@ Route::post('/save-transaction', [TransactionController::class, 'saveTransaction
 Route::get('/swap', [TransactionController::class, 'swap'])->name('swap');
 Route::get('/week-schedule', [TaskController::class, 'planWeekSchedule'])->name('weekSchedule');
 Route::get('/send-tasks', [TaskController::class, 'sendTasksToHub'])->name('sendTasks');
-
+Route::get('/stop-tasks', [TaskController::class, 'stopTasks'])->name('stopTasks');
+Route::get('/start-tasks', [TaskController::class, 'startTasks'])->name('startTasks');

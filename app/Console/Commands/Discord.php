@@ -7,14 +7,15 @@ use Illuminate\Http\Client\ConnectionException;
 use phpseclib3\Net\SSH2;
 use App\Models\Api\Task;
 
-class SquidAxlUsdc extends Command
+
+class Discord extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'squid:axlusdc';
+    protected $signature = 'discord:task';
 
     /**
      * The console command description.
@@ -29,10 +30,10 @@ class SquidAxlUsdc extends Command
      */
     public function handle()
     {
-        exec('cd $HOME/pythontest/ && python3 open_firefox_keplr.py');
-        exec('cd $HOME/pythontest/ && python3 squid_axl_usdc.py');
-        $squidAxlUsdc = Task::where('name', 'squid:axlusdc')->first();
-        $squidAxlUsdc->delete();
+        exec('cd $HOME/pythontest/ && python3 discord.py');
+        $discord = Task::where('name', 'discord:task')->first();
+        $discord->time = rand(1,57) . ' ' . rand(22, 23) . ' * * *';
+        $discord->save();
     }
 }
 

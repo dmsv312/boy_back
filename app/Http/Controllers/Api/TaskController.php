@@ -30,23 +30,48 @@ class TaskController extends Controller
     public int $currentDay = 1;
     public int $lastTransactionId = 0;
 
+    public function stopTasks()
+    {
+        $tasks = Task::all();
+
+        foreach($tasks as $task) {
+            $task->is_active = false;
+            $task->save();
+        }
+
+        return 'Bot stopped';
+    }
+
+    public function startTasks()
+    {
+        $tasks = Task::all();
+
+        foreach($tasks as $task) {
+            $task->is_active = true;
+            $task->save();
+        }
+
+        return 'Bot started';
+    }
+    
     public function planWeekSchedule()
     {
-        /** @var Transaction $lastTransaction */
-        $lastTransaction = Transaction::orderBy('id', 'DESC')->where('is_complete', 1)->first();
-        $this->lastTransactionId = $lastTransaction->id;
-        $nextDay = $this->nextWeekDay($this->currentDay);
-        while ($nextDay < 8) {
-            if ($lastTransaction->token_id_to == 1) {
-                $this->calculateEthSwap();
-            } else {
-                $this->calculateStableSwap();
-            }
-            $nextDay = $this->nextWeekDay($this->currentDay);
-            /** @var Transaction $lastTransaction */
-            $lastTransaction = Transaction::orderBy('id', 'DESC')->where('is_complete', 0)->first();
-            $this->lastTransactionId = $lastTransaction->id;
-        }
+        return ['aa' => env('APP_DEBUG', false)];
+        // /** @var Transaction $lastTransaction */
+        // $lastTransaction = Transaction::orderBy('id', 'DESC')->where('is_complete', 1)->first();
+        // $this->lastTransactionId = $lastTransaction->id;
+        // $nextDay = $this->nextWeekDay($this->currentDay);
+        // while ($nextDay < 8) {
+        //     if ($lastTransaction->token_id_to == 1) {
+        //         $this->calculateEthSwap();
+        //     } else {
+        //         $this->calculateStableSwap();
+        //     }
+        //     $nextDay = $this->nextWeekDay($this->currentDay);
+        //     /** @var Transaction $lastTransaction */
+        //     $lastTransaction = Transaction::orderBy('id', 'DESC')->where('is_complete', 0)->first();
+        //     $this->lastTransactionId = $lastTransaction->id;
+        // }
     }
 
     public function calculateStableSwap()
