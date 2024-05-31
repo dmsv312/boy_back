@@ -43,17 +43,23 @@ class Kernel extends ConsoleKernel
         $squidAxlUsdc = Task::where('name', 'squid:axlusdc')->first();
         $squidUsdcAxl = Task::where('name', 'squid:usdcaxl')->first();
         $discord = Task::where('name', 'discord:task')->first();
-        if ($squidAxlUsdc->is_active) {
-            $schedule->command($squidAxlUsdc->name)->cron($squidAxlUsdc->time);
+        if ($squidAxlUsdc) {
+            if ($squidAxlUsdc->is_active) {
+                $schedule->command($squidAxlUsdc->name)->cron($squidAxlUsdc->time);
+            }
         }
-        if ($squidUsdcAxl->is_active) {
-            $schedule->command($squidUsdcAxl->name)->cron($squidUsdcAxl->time);
-        }
-        if ($discord && $discord->is_active) {
-            $schedule->command($discord->name)->cron($discord->time);
+        if ($squidUsdcAxl) {
+            if ($squidUsdcAxl->is_active) {
+                $schedule->command($squidUsdcAxl->name)->cron($squidUsdcAxl->time);
+            }
         }
         
-
+        if ($discord) {
+            if ($discord->is_active) {
+                $schedule->command($discord->name)->cron($discord->time);
+            }
+        }
+        
 //        $swapTask = Task::orderBy('id', 'DESC')->where('name', 'swap:cron')->first();
 //        $day = $swapTask->getWeekDay();
 //
